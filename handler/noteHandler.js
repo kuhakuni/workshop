@@ -4,7 +4,7 @@ module.exports = {
     create: async (req, res) => {
         const { title, content, date, color } = req.body;
         const userId = req.userData.id;
-        const note = await noteRepository.create(
+        const note = await noteRepository.createNote(
             title,
             content,
             date,
@@ -15,7 +15,7 @@ module.exports = {
     },
     list: async (req, res) => {
         const userId = req.userData.id;
-        const notes = await noteRepository.findByUserId(userId);
+        const notes = await noteRepository.getNotesByUserId(userId);
         res.json(notes);
     },
     update: async (req, res) => {
@@ -42,7 +42,7 @@ module.exports = {
         }
 
         try {
-            const updatedNote = await noteRepository.updateById(
+            const updatedNote = await noteRepository.updateNoteById(
                 id,
                 updateFields,
                 userId

@@ -11,8 +11,7 @@ module.exports = {
 
     updateNoteById: async (id, updateFields, userId) => {
         const note = await Note.findByPk(id);
-
-        // Check if the note exists
+            
         if (!note) {
             throw new Error("Note not found");
         }
