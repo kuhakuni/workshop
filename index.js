@@ -1,7 +1,6 @@
 // index.js
-require('dotenv').config({ path: 'C:/Recovery/Project/workshop/workshop/.env' })
+require("dotenv").config();
 const express = require("express");
-const session = require("express-session");
 const cors = require("cors"); // Add this line
 const userRoutes = require("./routes/userRoutes");
 const noteRoutes = require("./routes/noteRoutes");
@@ -17,14 +16,14 @@ app.use("/notes", noteRoutes);
 
 // Sync models
 User.sync().then(() => {
-    console.log("The User table has been created.");
+	console.log("The User table has been created.");
 });
 
 Note.sync().then(() => {
-    console.log("The Note table has been created.");
+	console.log("The Note table has been created.");
 });
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+	console.log(`Server is running on port ${PORT}`);
 });
