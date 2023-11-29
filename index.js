@@ -2,6 +2,7 @@
 require('dotenv').config({ path: 'C:/Recovery/Project/workshop/workshop/.env' })
 const express = require("express");
 const session = require("express-session");
+const cors = require("cors"); // Add this line
 const userRoutes = require("./routes/userRoutes");
 const noteRoutes = require("./routes/noteRoutes");
 
@@ -9,6 +10,7 @@ const User = require("./models/user");
 const Note = require("./models/note");
 
 const app = express();
+app.use(cors()); // And add this line
 app.use(express.json());
 app.use("/users", userRoutes);
 app.use("/notes", noteRoutes);
