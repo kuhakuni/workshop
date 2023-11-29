@@ -1,5 +1,5 @@
 // index.js
-require("dotenv").config();
+require('dotenv').config({ path: 'C:/Recovery/Project/workshop/workshop/.env' })
 const express = require("express");
 const session = require("express-session");
 const userRoutes = require("./routes/userRoutes");
